@@ -1,0 +1,59 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sing up</title>
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+        <h2 class="active">Sign up</h2>
+
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <i class="fa fa-user fa-3x"></i>
+        </div>
+
+        <!-- Login Form -->
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="text" id="name" class="fadeIn first my-2" name="name" placeholder="Your Name">
+            <input type="text" id="username" class="fadeIn second my-2" name="username" placeholder="Username">
+            <input type="password" id="password1" class="fadeIn fourth my-2" name="password1" placeholder="Password">
+            <input type="password" id="password2" class="fadeIn fourth my-2" name="password2" placeholder="Confirm Password">
+            <input type="submit" class="fadeIn fourth mt-2" value="Sign up">
+        </form>
+
+        <!-- Remind Passowrd -->
+        <div id="formFooter">
+            Have account? <a class="underlineHover" href="{% url 'store:login' %}">Login here</a>
+            {% if messages %}
+                    <div class="alert alert-danger pb-0 mt-2">
+                        <ul class="list-unstyled pb-0 font-weight-bold">
+                            {% for message in messages %}
+                                <li>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+        </div>
+
+    </div>
+</div>
+
+
+<script src="{% static 'js/jquery-3.4.1.slim.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/all.min.js' %}"></script>
+</body>
+</html>

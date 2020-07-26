@@ -1,0 +1,58 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+        <h2 class="active">Sign In</h2>
+
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <i class="fa fa-user fa-3x"></i>
+        </div>
+
+        <!-- Login Form -->
+        <form method="post" action="">
+            {% csrf_token %}
+            <input type="text" id="login" class="fadeIn second my-2" name="username" placeholder="Username">
+            <input type="password" id="password" class="fadeIn third my-2" name="pass" placeholder="password">
+            <input type="submit" class="fadeIn fourth mt-2" value="Login">
+        </form>
+
+        <!-- Remind Passowrd -->
+        <div id="formFooter">
+            <a class="underlineHover" href="{% url 'store:signup' %}">Sign up here</a> <br>
+            <a class="underlineHover" href="#">Forgot Password?</a>
+            {% if messages %}
+                    <div class="alert alert-danger mt-2 pb-0">
+                        <ul class="list-unstyled pb-0 font-weight-bold">
+                            {% for message in messages %}
+                                <li>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+
+
+<script src="{% static 'js/jquery-3.4.1.slim.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/all.min.js' %}"></script>
+</body>
+</html>

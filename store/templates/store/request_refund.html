@@ -1,0 +1,23 @@
+{% extends 'store/base.html' %}
+{% load crispy_forms_filters %}
+{% block content %}
+    <br><br>
+    <main>
+        <div class="container py-5">
+            <div class="table-responsive">
+                <h2 class="font-weight-bold">Request Refund</h2>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+            </div>
+        </div>
+    </main>
+
+{% endblock %}
+
+<!--Carousel Wrapper-->
+
+
